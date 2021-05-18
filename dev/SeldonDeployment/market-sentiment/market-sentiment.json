@@ -1,0 +1,52 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1",
+    "metadata": {
+        "name": "market-sentiment",
+        "namespace": "dev",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "market-sentiment",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "market-sentiment-v0.3",
+                    "type": "MODEL",
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-05-18T14:59:29Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "market-sentiment-v0.3",
+                                    "image": "jimmywhitaker/market-sentiment-classifier:0.3",
+                                    "resources": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "seldon"
+    },
+    "status": {}
+}
