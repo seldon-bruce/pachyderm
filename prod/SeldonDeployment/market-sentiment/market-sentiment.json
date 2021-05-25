@@ -6,6 +6,7 @@
         "namespace": "prod",
         "creationTimestamp": null,
         "labels": {
+            "app.kubernetes.io/instance": "pachyderm-prod",
             "fluentd": "true"
         }
     },
@@ -40,40 +41,7 @@
                 "replicas": 1,
                 "engineResources": {},
                 "svcOrchSpec": {},
-                "traffic": 80
-            },
-            {
-                "name": "canary",
-                "graph": {
-                    "name": "market-sentiment-container",
-                    "type": "MODEL",
-                    "logger": {
-                        "mode": "all"
-                    }
-                },
-                "componentSpecs": [
-                    {
-                        "metadata": {
-                            "creationTimestamp": "2021-05-25T23:11:59Z"
-                        },
-                        "spec": {
-                            "containers": [
-                                {
-                                    "name": "market-sentiment-container",
-                                    "image": "market-sentiment-canary-0-market-sentiment-container-7b8574w2hc",
-                                    "resources": {}
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "replicas": 1,
-                "annotations": {
-                    "seldon.io/canary": "true"
-                },
-                "engineResources": {},
-                "svcOrchSpec": {},
-                "traffic": 20
+                "traffic": 100
             }
         ],
         "annotations": {
