@@ -6,7 +6,6 @@
         "namespace": "dev",
         "creationTimestamp": null,
         "labels": {
-            "app.kubernetes.io/instance": "pachyderm-dev",
             "fluentd": "true"
         }
     },
@@ -16,7 +15,7 @@
             {
                 "name": "default",
                 "graph": {
-                    "name": "market-sentiment",
+                    "name": "market-sentiment-container",
                     "type": "MODEL",
                     "logger": {
                         "mode": "all"
@@ -25,12 +24,12 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-05-25T15:20:04Z"
+                            "creationTimestamp": "2021-05-24T22:05:29Z"
                         },
                         "spec": {
                             "containers": [
                                 {
-                                    "name": "market-sentiment",
+                                    "name": "market-sentiment-container",
                                     "image": "jimmywhitaker/market-sentiment-classifier:0.6",
                                     "resources": {}
                                 }
@@ -40,9 +39,6 @@
                 ],
                 "replicas": 1,
                 "engineResources": {},
-                "labels": {
-                    "version": "default"
-                },
                 "svcOrchSpec": {},
                 "traffic": 100
             }
