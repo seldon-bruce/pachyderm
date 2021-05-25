@@ -40,7 +40,40 @@
                 "replicas": 1,
                 "engineResources": {},
                 "svcOrchSpec": {},
-                "traffic": 100
+                "traffic": 80
+            },
+            {
+                "name": "canary",
+                "graph": {
+                    "name": "market-sentiment",
+                    "type": "MODEL",
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-05-25T15:20:04Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "market-sentiment",
+                                    "image": "jimmywhitaker/market-sentiment-classifier:0.6",
+                                    "resources": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "annotations": {
+                    "seldon.io/canary": "true"
+                },
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 20
             }
         ],
         "annotations": {
