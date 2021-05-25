@@ -6,7 +6,6 @@
         "namespace": "prod",
         "creationTimestamp": null,
         "labels": {
-            "app.kubernetes.io/instance": "pachyderm-prod",
             "fluentd": "true"
         }
     },
@@ -25,13 +24,13 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-05-25T15:47:32Z"
+                            "creationTimestamp": "2021-05-25T15:39:33Z"
                         },
                         "spec": {
                             "containers": [
                                 {
                                     "name": "market-sentiment-container",
-                                    "image": "jimmywhitaker/market-sentiment-classifier:0.7",
+                                    "image": "jimmywhitaker/market-sentiment-classifier:0.6",
                                     "resources": {
                                         "limits": {
                                             "cpu": "1",
@@ -64,9 +63,6 @@
                 ],
                 "replicas": 1,
                 "engineResources": {},
-                "labels": {
-                    "version": "default"
-                },
                 "svcOrchSpec": {},
                 "traffic": 100
             }
